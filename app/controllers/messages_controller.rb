@@ -1,6 +1,9 @@
 class MessagesController < ApplicationController
   
   def new
+  end
+  
+  def create
     warn "T"*50
     warn "In new"
     warn params[:Body]
@@ -12,8 +15,5 @@ class MessagesController < ApplicationController
     respond_to do |format|
         format.xml { render xml: @response.text }
     end
-  end
-  
-  def create
   end
 end
