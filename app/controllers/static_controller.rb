@@ -20,12 +20,12 @@ class StaticController < ApplicationController
     # "FromCity"=>"LAWRENCE", "SmsStatus"=>"received", "From"=>"+19788525267", "FromZip"=>"01720"}
     warn "*"*50
     warn "Text body"
-    sms_text = params.body
+    sms_text = params(:body)
     warn "Text number"
-    sms_number = params.from
+    sms_number = params(:from)
     
     response = Twilio::TwiML::Response.new do |r|
-      r.Sms 'well hello there'
+      r.Sms "Thanks. We've contacted your close contacts. Stay safe!"
     end
 
     respond_to do |format|
