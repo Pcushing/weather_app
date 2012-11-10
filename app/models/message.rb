@@ -3,7 +3,7 @@ class Message < ActiveRecord::Base
   validates_presence_of :phone, :on => :create, :message => "can't be blank"
   # after_create :sms_contacts
   # after_create :tweet_311
-  after_create :email_contacts
+  # after_create :email_contacts
   
   private
     def sms_contacts
