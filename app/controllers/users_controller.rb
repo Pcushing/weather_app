@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     request = JSON.parse(params.to_json).symbolize_keys!
     user_params = request[:user]
     contacts_params = request[:contacts] 
-    @user = User.new(phone: user_params["phone"], email: user_params["email"])
+    @user = User.new(phone: "+" + user_params["phone"], email: user_params["email"])
     respond_to do |format|
        if @user.save
          @user.create_contacts(contacts_params) if !contacts_params.nil?
