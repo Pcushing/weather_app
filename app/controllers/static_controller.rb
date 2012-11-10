@@ -8,18 +8,18 @@ class StaticController < ApplicationController
     @client = Twilio::REST::Client.new account_sid, auth_token
     @client.account.sms.messages.create(
       :from => '+19789653430',
-      :to => '+14088688605',
+      :to => '+19788525267',
       :body => "We're live with Twilio!"
     )
   end
   
   def receiver
-    # build up a response
     response = Twilio::TwiML::Response.new do |r|
       r.Sms 'hello there'
     end
 
-    # print the result
-    puts response.text
+    respond_to do |format|
+        format.xml { render xml: response}
+    end
   end
 end
