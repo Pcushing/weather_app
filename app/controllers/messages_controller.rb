@@ -1,8 +1,7 @@
 class MessagesController < ApplicationController
   
   def new
-    @body = params[:Body].split("#").first.strip
-    # @options = params[:Body].split("#")[1..-1]
+    @body = params[:Body]
     @message = Message.new(body: @body, phone: params[:From])    
     if @message.save
       @response = Twilio::TwiML::Response.new do |r|
