@@ -1,8 +1,8 @@
 class Message < ActiveRecord::Base
   attr_accessible :body, :phone
   validates_presence_of :phone, :on => :create, :message => "can't be blank"
-  after_create :sms_contacts
-  after_create :tweet_311
+  # after_create :sms_contacts
+  # after_create :tweet_311
   after_create :email_contacts
   
   private
@@ -24,9 +24,10 @@ class Message < ActiveRecord::Base
     end
     
     def email_contacts
+      @user = User.find_by_phone(self.phone)
       if !@user.contacts.empty?  
         @user.contacts.each do |contact|
-          ContactMailer.new_message(contact, self.body).deliver
+          ContactMailer.new_message(contact, self).deliver
         end
       end
     end
