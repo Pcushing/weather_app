@@ -1,0 +1,5 @@
+<ul>
+  <% @users.each do |user| %>
+    <li><%= user.phone %><%= link_to('Delete', user, :confirm => 'Are you sure?', :method => :delete) %></li>
+  <% end %>
+</ul>

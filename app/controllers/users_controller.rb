@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def index
+    @users = User.all
   end
   
   def new
@@ -18,6 +19,13 @@ class UsersController < ApplicationController
        else
          format.json { 'something went wrong' }
        end 
+    end
+  end
+  
+  def destroy
+    @user = User.find(params[:id])
+    if @user.destroy
+      redirect_to users_path, notice: "User deleted"
     end
   end
 end

@@ -1,0 +1,5 @@
+<ul>
+  <% @contacts.each do |contact| %>
+    <li><%= contact.phone if !contact.phone.nil? %> <%= contact.email if !contact.email.nil? %><%= link_to('Delete', contact, :confirm => 'Are you sure?', :method => :delete) %></li>
+  <% end %>
+</ul>
