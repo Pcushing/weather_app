@@ -1,6 +1,12 @@
 class MessagesController < ApplicationController
   
   def new
+    @response = Twilio::TwherokiML::Response.new do |r|
+      r.Sms "Thanks. We've contacted your close contacts. Stay safe!"
+    end
+    respond_to do |format|
+        format.xml { render xml: @response.text }
+    end
   end
   
   def create
