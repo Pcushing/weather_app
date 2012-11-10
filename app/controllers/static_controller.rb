@@ -12,7 +12,8 @@ class StaticController < ApplicationController
   end
   
   def receiver
-    puts params.inspect
+    warn "*"*50
+    warn params.inspect
     
     response = Twilio::TwiML::Response.new do |r|
       r.Sms 'well hello there'
