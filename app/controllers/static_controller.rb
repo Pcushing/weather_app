@@ -16,10 +16,7 @@ class StaticController < ApplicationController
   def receiver
     # build up a response
     response = Twilio::TwiML::Response.new do |r|
-      r.Say 'hello there', :voice => 'woman'
-      r.Dial :callerId => '+14159992222' do |d|
-        d.Client 'jenny'
-      end
+      r.Sms 'hello there'
     end
 
     # print the result
