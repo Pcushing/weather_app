@@ -13,8 +13,8 @@ class Message < ActiveRecord::Base
       @client = Twilio::REST::Client.new account_sid, auth_token
       @user = User.find_by_phone(self.phone)
       warn "II"*50
-      warn @user.contacts.nil?
-      warn @user.contacts.empty?  
+      warn @user
+      warn @user.contacts.inspect
       if !@user.contacts.empty?  
         @user.contacts.each do |contact|
           @client.account.sms.messages.create(
