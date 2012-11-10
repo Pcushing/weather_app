@@ -25,13 +25,6 @@ class StaticController < ApplicationController
     #     :body => @sms_text
     #   )
     # end
-    
-    @response = Twilio::TwiML::Response.new do |r|
-      r.Sms "Thanks. We've contacted your close contacts. Stay safe!"
-    end
-    respond_to do |format|
-        format.xml { render xml: @response.text }
-    end
   end
 
 end
