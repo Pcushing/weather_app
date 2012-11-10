@@ -1,8 +1,54 @@
+* {  
+  margin: 0;  
+  padding: 0;
+}
+body {
+  
+  background: url('site_bg.png') no-repeat center top #1e2a32;
+  	font-family: 'Helvetica Neue', Arial, sans-serif;
+  	
+  	font-weight: lighter;
+    color: #e7e7e7;
+		min-height: 1000px;
+  }
 h1 {
 	font-family: 'Helvetica Neue', Arial, sans-serif;
 	font-size: 86px;
 	text-align: center
 }
+
+
+header {
+  text-align: center;
+  margin: 0px auto;
+}
+
+#main {
+  padding-bottom: 60px;
+  margin: 0px auto;
+  width: 900px;
+}
+
+
+#list {
+  float: right;
+  width: 480px;
+  font-size: 24px;
+  padding-top: 50px;
+  color: #b6c3ce;
+}
+
+h2 {
+  color: #ffffff;
+  font-size: 40px;
+}
+
+ul {
+  padding-left: 30px;
+}
 img {
-	float: left;
+}
+
+ul li {
+	list-style-type: none;
 }

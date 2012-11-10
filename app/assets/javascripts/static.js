@@ -3,7 +3,7 @@ $(function(){
 	var curritem=0;
 
   newsitems = $("#featured li").hide().size();
-  $("#ticker li:eq("+curritem+")").fadeIn(1000);
+  $("#featured li:eq("+curritem+")").fadeIn(1000);
   setInterval(ticknews,4000); //time in milliseconds
 
 	function ticknews() {
