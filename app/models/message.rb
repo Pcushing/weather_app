@@ -1,6 +1,6 @@
 class Message < ActiveRecord::Base
   attr_accessible :body, :phone
-  
+  validates_presence_of :phone, :on => :create, :message => "can't be blank"
   after_create :sms_contacts
   
   private
