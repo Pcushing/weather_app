@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
     warn "In new"
     warn params[:Body]
     warn params[:From]
-    @message.create(params[:Body], params[:From])    
+    Message.create!(params[:Body], params[:From])    
     @response = Twilio::TwherokiML::Response.new do |r|
       r.Sms "Thanks. We've contacted your close contacts. Stay safe!"
     end
