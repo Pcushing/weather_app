@@ -8,10 +8,10 @@ class StaticController < ApplicationController
     warn params[:Body]
     warn params[:From]
     
-    account_sid = 'ACa2fd753d813c6b10be9a38af65653e6b'
-    auth_token = '2601077aa3fa59bbc7a6c5459f8beafc'
-    
-    @client = Twilio::REST::Client.new account_sid, auth_token
+    # account_sid = 'ACa2fd753d813c6b10be9a38af65653e6b'
+    # auth_token = '2601077aa3fa59bbc7a6c5459f8beafc'
+    # 
+    # @client = Twilio::REST::Client.new account_sid, auth_token
     
     @sms_text = params[:Body]
     @sms_number = params[:From]
