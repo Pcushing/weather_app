@@ -6,7 +6,11 @@ class StaticController < ApplicationController
     @sms_text = params[:body]
     @sms_number = params[:from]
     
+    warn "T"*50
+    warn @sms_number
+    
     @user = User.find_by_phone(@sms_number)
+    warn @user
     @user.contacts.each do |contact|
       send_sms_to contact
     end
