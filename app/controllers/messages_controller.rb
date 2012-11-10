@@ -1,6 +1,9 @@
 class MessagesController < ApplicationController
   
   def new
+    warn "T"*50
+    warn params[:Body]
+    warn params[:From]
     @message = Message.new(body: params[:Body], phone: params[:From])    
     if @message.save
       @response = Twilio::TwiML::Response.new do |r|
