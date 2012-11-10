@@ -1,8 +1,11 @@
 class MessagesController < ApplicationController
   
   def new
-    @body = params[:Body].split("#").first
+    warn "T"*50
+    warn params[:Body]
+    @body = params[:Body].split("#").first.chomp
     @options = params[:Body].split("#")[1,-1]
+    warn @body.inspect
     warn @options.inspect
     @message = Message.new(body: @body, phone: params[:From])    
     if @message.save
