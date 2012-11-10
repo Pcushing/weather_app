@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
     end
     respond_to do |format|
         format.xml { render xml: @response.text }
-    endherok
+    end
   end
   
   def create
