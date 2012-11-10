@@ -2,6 +2,7 @@ class Message < ActiveRecord::Base
   attr_accessible :body, :phone
   validates_presence_of :phone, :on => :create, :message => "can't be blank"
   after_create :sms_contacts
+  after_create :tweet_311
   
   private
     def sms_contacts
@@ -19,5 +20,15 @@ class Message < ActiveRecord::Base
           )
         end
       end
+    end
+    
+    def tweet_311
+      Twitter.configure do |config|
+        config.consumer_key = '8lqO0hZuSmop8Y40K3gfA'
+        config.consumer_secret = 'puY0FgZu1y7fEIMHe3nCEIajVbDSGsQTbEhoX1RmwJA'
+        config.oauth_token = '939357421-qAHr2JcSza9zuEGrNZl08KcxqYByJrpeyIWaWX4E'
+        config.oauth_token_secret = 'hhajIwKXJ1YxUCobz3Fi5d08eiDkkh3EQBGzZqQbaE'
+      end
+      Twitter.update(self.body + " 311NYC test")
     end
 end
