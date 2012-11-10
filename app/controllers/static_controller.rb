@@ -28,8 +28,7 @@ class StaticController < ApplicationController
     
     warn "T"*50
     warn params.inspect
-    warn params[:from]
-    warn params[:body]
+    warn params.methods
     
     @response = Twilio::TwiML::Response.new do |r|
       r.Sms "Thanks. We've contacted your close contacts. Stay safe!"
