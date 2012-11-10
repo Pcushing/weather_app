@@ -5,6 +5,8 @@ gem 'twilio-ruby'
 gem 'pg'
 gem 'twitter'
 gem 'sendgrid'
+gem 'thin'
+gem 'json'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
