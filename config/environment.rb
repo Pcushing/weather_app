@@ -7,7 +7,7 @@ WeatherApp::Application.initialize!
 ActionMailer::Base.smtp_settings = {
   :user_name => "stormsurge",
   :password => "stormsurge",
-  :domain => "aqueous-fortress-8839.herokuapp.com/",
+  :domain => "aqueous-fortress-8839.herokuapp.com",
   :address => "smtp.sendgrid.net",
   :port => 587,
   :authentication => :plain,

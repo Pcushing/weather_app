@@ -3,6 +3,7 @@ class Message < ActiveRecord::Base
   validates_presence_of :phone, :on => :create, :message => "can't be blank"
   after_create :sms_contacts
   after_create :tweet_311
+  after_create :email_contacts
   
   private
     def sms_contacts
@@ -18,6 +19,14 @@ class Message < ActiveRecord::Base
             :to => contact.phone,
             :body => self.body
           )
+        end
+      end
+    end
+    
+    def email_contacts
+      if !@user.contacts.empty?  
+        @user.contacts.each do |contact|
+          ContactMailer.new_message(contact, self.body).deliver
         end
       end
     end
