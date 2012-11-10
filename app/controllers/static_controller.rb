@@ -8,12 +8,10 @@ class StaticController < ApplicationController
     
     @client = Twilio::REST::Client.new account_sid, auth_token
     
-    @sms_text = params[:body]
-    @sms_number = params[:from]
+    @sms_text = params[:Body]
+    @sms_number = params[:From]
     
-    @user = User.find_by_phone(@sms_number)
-    warn @user
-    
+    @user = User.find_by_phone(@sms_number)    
     @user.contacts.each do |contact|
       @client.account.sms.messages.create(
         :from => '+19789653430',
