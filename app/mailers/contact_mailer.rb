@@ -1,4 +1,5 @@
 class ContactMailer < ActionMailer::Base
+  include SendGrid
   default from: "no-reply@aqueous-fortress-8839.herokuapp.com"
   
   def mail_contacts(contact, body)
