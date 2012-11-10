@@ -17,9 +17,11 @@ class StaticController < ApplicationController
     response = Twilio::TwiML::Response.new do |r|
       r.Sms 'hello there'
     end
-
+    
+    puts response.inspect
+    puts response.text
     respond_to do |format|
-        format.xml { render xml: response}
+        format.xml { render xml: response.text }
     end
   end
 end
