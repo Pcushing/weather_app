@@ -11,12 +11,6 @@ class StaticController < ApplicationController
     @sms_text = params[:body]
     @sms_number = params[:from]
     
-    warn "T"*50
-    warn params.inspect
-    warn params.methods
-    warn params[:From]
-    warn params[:Body]
-    
     @user = User.find_by_phone(@sms_number)
     warn @user
     
